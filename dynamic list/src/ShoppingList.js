@@ -26,7 +26,7 @@ class ShoppingList extends React.Component {
     handleDelete(index) {
         console.log(index);
         let list = this.state.ingredients;
-        delete list[index];
+        list = list.filter((item, i) => { return i != index })
         this.setState({ ingredients: list });
     }
 
