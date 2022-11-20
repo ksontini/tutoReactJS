@@ -1,0 +1,45 @@
+**Description de l'application :**
+
+L'idée est de faire une application reactJs qui permet à l'utilisateur de savoir des informations sur un pays choisi.
+
+**Maquette:**
+
+![image](https://gitlab.myopenbee.com/ali_d/management/-/raw/master/recruitment/exercices/ReactJS/screenshot/display-info.PNG?inline=true)
+
+**Scénario :**
+
+- Sélectionner un continent , la liste des pays se met à jour dynamiquement ( via une API).
+- À la sélection d'un pays , les informations de ce dernier s'affiche au dessous de la page.
+
+**La liste des continents est fixe:**
+"Africa",
+"Americas",
+"Asia",
+"Europe",
+"Oceania"
+
+**La liste des pays est dynamique à récupérer depuis le web service suivant:**
+
+GET https://restcountries.com/v2/region/{continent}
+
+La parametre "continent" doit être la valeur sélectionné de la premiere liste .
+
+**NB:** Il ne faut pas traduire les noms des continents dans l'url du web service.
+
+Toutes les informations qui sont affichées au dessous de la page existent dans le retour du Web service.
+
+---
+
+**How To ?**
+
+1- Ouvrir le site https://codesandbox.io
+
+2- Créer un nouveau projet en choisissant un template React
+
+3- A la fin du développement, envoyer l'URL du projet au recruteur..
+
+---
+
+Solution en ligne : https://codesandbox.io/s/elated-tu-r9uqq
+
+API : https://restcountries.com/
