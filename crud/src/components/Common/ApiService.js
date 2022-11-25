@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8000";
+const baseUrl = "https://www.crud-api.neapolab.com";
 
 export class ApiService {
 
