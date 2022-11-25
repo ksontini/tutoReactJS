@@ -10,9 +10,12 @@ function App() {
       'message': message,
       'status': status
     })
+    if(status=="success"){
+      setTimeout(() => {
+        setNotification(null);
+      }, 2000);
+    }
   }
-
-
 
   let htmlNotification = null
   if (notification != null) {
@@ -29,7 +32,7 @@ function App() {
         {htmlNotification}
       </div>
 
-      <Users showMessage={showNotification} />
+      <Users showMessage={showNotification}  />
     </div>
   );
 }

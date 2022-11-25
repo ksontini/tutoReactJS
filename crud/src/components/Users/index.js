@@ -18,6 +18,7 @@ function Users(props) {
         .then(function (response) {
           console.log("response", response);
           setListUsers(response.data);
+          setIdUserToModify(null);
           setLoadList(true);
         })
         .catch(function (error) {
@@ -60,8 +61,8 @@ function Users(props) {
 
         <div className="col-md-4 order-md-2 mb-4">
           {idUserToModify
-            ? <Edit reloadListUsers={() => {setLoadList(false)} } idUserToEdit={idUserToModify} showMessage={props.showMessage} />
-            : <Add reloadListUsers={() => {setLoadList(false)} }  showMessage={props.showMessage} />
+            ? <Edit reloadListUsers={() => {setLoadList(false)} } idUserToEdit={idUserToModify} showMessage={props.showMessage}  />
+            : <Add reloadListUsers={() => {setLoadList(false)} }  showMessage={props.showMessage}  />
           }
         </div>
 
