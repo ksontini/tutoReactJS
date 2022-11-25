@@ -1,28 +1,28 @@
 import axios from "axios";
 
-const urlBase = "https://www.crud-api.neapolab.com";
+const baseUrl = "http://localhost:8000";
 
 export class ApiService {
 
-    static instance = axios.create({
+    /*static instance = axios.create({
         headers: {
-            "Content-Type": "application/json",
+          //  "Content-Type": "application/json",
         }
-    });
+    });*/
 
     static get(route) {
-        return this.instance.get(urlBase + route, {});
+        return axios.get(baseUrl + route, {});
     }
 
     static post(route, jsonData) {
-        return this.instance.post(urlBase + route, JSON.stringify(jsonData));
+        return axios.post(baseUrl + route, JSON.stringify(jsonData));
     }
     static put(route, jsonData) {
-        return this.instance.post(urlBase + route, JSON.stringify(jsonData));
+        return axios.put(baseUrl + route, JSON.stringify(jsonData));
     }
 
     static delete(route) {
-        return this.instance.post(urlBase + route, {});
+        return axios.delete(baseUrl + route, {});
     }
 
 }

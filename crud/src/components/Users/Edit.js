@@ -34,6 +34,7 @@ function Edit(props) {
             .then(function (response) {
                 console.log("response add user", response);
                 props.showMessage("Un Utilisateur a été modifié avec succès", "success");
+                props.reloadListUsers();
             })
             .catch(function (error) {
                 props.showMessage("Une erreur est survenu lors de la modification d'un utilisateur", "error");

@@ -19,6 +19,7 @@ function Add(props) {
             .then(function (response) {
                 console.log("response add user", response);
                 props.showMessage("Un nouveau Utilisateur a été ajouté avec succès", "success");
+                props.reloadListUsers();
             })
             .catch(function (error) {
                 props.showMessage("Une erreur est survenu lors de l'ajout d'un utilisateur", "error");

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Edit from "./Edit";
 import Add from "./Add";
 
-import axios from "axios";
 import { ApiService } from "../Common/ApiService";
 
 function Users(props) {
@@ -10,20 +9,20 @@ function Users(props) {
   const [idUserToModify, setIdUserToModify] = useState(false);
   const [listUsers, setListUsers] = useState([
   ]);
-  const [isfirstLoad, setIsFirstLoad] = useState(false);
+  const [loadList, setLoadList] = useState(false);
 
 
   useEffect(() => {
-    if (!isfirstLoad) {
+    if (!loadList) {
       ApiService.get("/api/users")
         .then(function (response) {
           console.log("response", response);
           setListUsers(response.data);
-          setIsFirstLoad(true);
+          setLoadList(true);
         })
         .catch(function (error) {
           console.log("error", error);
-          setIsFirstLoad(true);
+          setLoadList(true);
         });
 
     }
@@ -34,6 +33,7 @@ function Users(props) {
       .then(function (response) {
         console.log("response delete", response);
         props.showMessage("Utilisateur supprimé avec succès", "success");
+        setLoadList(false);
       })
       .catch(function (error) {
         console.log("error", error);
@@ -60,8 +60,8 @@ function Users(props) {
 
         <div className="col-md-4 order-md-2 mb-4">
           {idUserToModify
-            ? <Edit idUserToEdit={idUserToModify} showMessage={props.showMessage} />
-            : <Add showMessage={props.showMessage} />
+            ? <Edit reloadListUsers={() => {setLoadList(false)} } idUserToEdit={idUserToModify} showMessage={props.showMessage} />
+            : <Add reloadListUsers={() => {setLoadList(false)} }  showMessage={props.showMessage} />
           }
         </div>
 
