@@ -3,18 +3,21 @@
         "name": "mahesh",
         "password": "password1",
         "profession": "teacher",
+        "address": "50 rue abou dhabi",
         "id": 1
     },
     "user2": {
         "name": "suresh",
         "password": "password2",
         "profession": "librarian",
+        "address": "201 rue hedi wali",
         "id": 2
     },
     "user3": {
         "name": "ramesh",
         "password": "password3",
         "profession": "clerk",
+        "address": "03 avenu habib bourguiba",
         "id": 3
     }
 }
