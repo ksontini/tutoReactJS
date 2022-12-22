@@ -1,0 +1,20 @@
+{
+    "product1": {
+        "name": "fleur de chine",
+        "description": "parfun d'ambiance",
+        "price": 15,
+        "id": 1
+    },
+    "product2": {
+        "name": "Jarsim",
+        "description": "parfun d'ambiance",
+        "price": 12,
+        "id": 2
+    },
+    "product3": {
+        "name": "Agrumes",
+        "description": "parfun d'ambiance",
+        "price": 13,
+        "id": 3
+    }
+}

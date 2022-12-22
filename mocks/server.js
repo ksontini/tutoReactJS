@@ -77,6 +77,69 @@ app.put('/users/:id', function (req, res) {
     });
 });
 
+//handle products
+
+//Handle GET method for listing all users
+app.get('/products', function (req, res) {
+    fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
+        console.log(data);
+        res.end(data);
+    });
+})
+
+//Handle GET method to get only one record
+app.get('/products/:id', function (req, res) {
+    // First read existing users.  
+    fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
+        users = JSON.parse(data);
+        console.log(req.params.id);
+        var user = users["user" + req.params.id]
+        res.end(JSON.stringify(user));
+    });
+})
+
+//Handle POST method
+app.post('/products', function (req, res) {
+    // First read existing users.  
+    fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
+        var obj = JSON.parse('[' + data + ']');
+        obj.push(req.body);
+
+        res.end(JSON.stringify(obj));
+    });
+})
+
+//Handle DELETE method
+app.delete('/products/:id', function (req, res) {
+
+    // First read existing users.  
+    fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
+        data = JSON.parse(data);
+
+        delete data["user" + req.params.id];
+
+        res.end(JSON.stringify(data));
+    });
+})
+
+//Handle GET method
+app.put('/products/:id', function (req, res) {
+
+    // First read existing users.  
+    fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
+        //var obj = JSON.parse('[' + data + ']' );  
+        data = JSON.parse(data);
+        var arr = {};
+        arr = req.body;
+
+        data["user" + req.params.id] = arr[Object.keys(arr)[0]]; //  req.body;   //obj[Object.keys(obj)[0]]  
+
+        res.end(JSON.stringify(data));
+
+    });
+});
+
+
 var server = app.listen(8081, function () {
 
     var host = server.address().address
