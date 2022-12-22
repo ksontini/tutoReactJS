@@ -1,0 +1,9 @@
+{
+    "transform": {
+        "^.+\\.jsx?$": "babel-jest"
+    },
+    "setupFiles": [
+        "<rootDir>/setupTests.js"
+    ],
+    "testEnvironment": "jsdom"
+}
