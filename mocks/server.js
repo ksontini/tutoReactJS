@@ -20,7 +20,6 @@ app.use(bodyParser.json());
 //Handle GET method for listing all users
 app.get('/users', function (req, res) {
     fs.readFile(__dirname + "/" + "users.json", 'utf8', function (err, data) {
-        console.log(data);
         res.end(data);
     });
 })
@@ -30,7 +29,6 @@ app.get('/users/:id', function (req, res) {
     // First read existing users.  
     fs.readFile(__dirname + "/" + "users.json", 'utf8', function (err, data) {
         users = JSON.parse(data);
-        console.log(req.params.id);
         var user = users["user" + req.params.id]
         res.end(JSON.stringify(user));
     });
@@ -82,7 +80,6 @@ app.put('/users/:id', function (req, res) {
 //Handle GET method for listing all users
 app.get('/products', function (req, res) {
     fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
-        console.log(data);
         res.end(data);
     });
 })
@@ -92,8 +89,7 @@ app.get('/products/:id', function (req, res) {
     // First read existing users.  
     fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
         users = JSON.parse(data);
-        console.log(req.params.id);
-        var user = users["user" + req.params.id]
+        var user = users["product" + req.params.id]
         res.end(JSON.stringify(user));
     });
 })
@@ -116,7 +112,7 @@ app.delete('/products/:id', function (req, res) {
     fs.readFile(__dirname + "/" + "products.json", 'utf8', function (err, data) {
         data = JSON.parse(data);
 
-        delete data["user" + req.params.id];
+        delete data["product" + req.params.id];
 
         res.end(JSON.stringify(data));
     });
@@ -132,7 +128,7 @@ app.put('/products/:id', function (req, res) {
         var arr = {};
         arr = req.body;
 
-        data["user" + req.params.id] = arr[Object.keys(arr)[0]]; //  req.body;   //obj[Object.keys(obj)[0]]  
+        data["product" + req.params.id] = arr[Object.keys(arr)[0]]; //  req.body;   //obj[Object.keys(obj)[0]]  
 
         res.end(JSON.stringify(data));
 
