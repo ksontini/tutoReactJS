@@ -42,6 +42,9 @@ app.post('/users', function (req, res) {
         obj.push(req.body);
 
         res.end(JSON.stringify(obj));
+        fs.writeFile(__dirname + "/" + "users.json", JSON.stringify(data), function (err) {
+            if (err) throw err;
+        });
     });
 })
 
@@ -55,6 +58,9 @@ app.delete('/users/:id', function (req, res) {
         delete data["user" + req.params.id];
 
         res.end(JSON.stringify(data));
+        fs.writeFile(__dirname + "/" + "users.json", JSON.stringify(data), function (err) {
+            if (err) throw err;
+        });
     });
 })
 
@@ -71,7 +77,9 @@ app.put('/users/:id', function (req, res) {
         data["user" + req.params.id] = arr[Object.keys(arr)[0]]; //  req.body;   //obj[Object.keys(obj)[0]]  
 
         res.end(JSON.stringify(data));
-
+        fs.writeFile(__dirname + "/" + "users.json", JSON.stringify(data), function (err) {
+            if (err) throw err;
+        });
     });
 });
 
@@ -102,6 +110,9 @@ app.post('/products', function (req, res) {
         obj.push(req.body);
 
         res.end(JSON.stringify(obj));
+        fs.writeFile(__dirname + "/" + "products.json", JSON.stringify(data), function (err) {
+            if (err) throw err;
+        });
     });
 })
 
@@ -115,6 +126,10 @@ app.delete('/products/:id', function (req, res) {
         delete data["product" + req.params.id];
 
         res.end(JSON.stringify(data));
+        fs.writeFile(__dirname + "/" + "products.json", JSON.stringify(data), function (err) {
+            if (err) throw err;
+        });
+
     });
 })
 
@@ -131,7 +146,9 @@ app.put('/products/:id', function (req, res) {
         data["product" + req.params.id] = arr[Object.keys(arr)[0]]; //  req.body;   //obj[Object.keys(obj)[0]]  
 
         res.end(JSON.stringify(data));
-
+        fs.writeFile(__dirname + "/" + "products.json", JSON.stringify(data), function (err) {
+            if (err) throw err;
+        });
     });
 });
 
